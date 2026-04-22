@@ -1,0 +1,66 @@
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    # Files adapted verbatim from image_processing 1.14.0 (MIT, (c) Janko Marohnic).
+    # Keeping them diffable against upstream intentionally overrides rubocop style.
+    - "lib/pura/processing/chainable.rb"
+    - "lib/pura/processing/builder.rb"
+    - "lib/pura/processing/pipeline.rb"
+    - "lib/pura/processing/processor.rb"
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - "lib/pura-*.rb"
+
+Metrics/MethodLength:
+  Max: 40
+  Exclude:
+    - "test/**/*"
+
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - "test/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "test/**/*"
+    - "*.gemspec"
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Metrics/ModuleLength:
+  Max: 200
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Lint/DuplicateBranch:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
+
+Style/GuardClause:
+  Enabled: false

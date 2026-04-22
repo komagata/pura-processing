@@ -8,6 +8,6 @@ require_relative "processing/processor"
 
 module Pura
   module Processing
-    Error = Class.new(StandardError)
+    class Error < StandardError; end
   end
 end
