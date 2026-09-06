@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.2', '3.3', '3.4']
+        ruby-version: ['3.2', '3.3', '3.4', '4.0']
 
     steps:
       - uses: actions/checkout@v4
@@ -27,12 +27,15 @@ jobs:
 
   test-yjit:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.4', '4.0']
     steps:
       - uses: actions/checkout@v4
       - name: Set up Ruby with YJIT
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4'
+          ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
       - name: Run tests with YJIT
         run: RUBY_YJIT_ENABLE=1 bundle exec rake test
